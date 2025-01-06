@@ -52,7 +52,7 @@ defmodule LiveCharts.Adapter do
   Fully qualified name of the LiveView hook to call when rendering
   the chart.
   """
-  @callback hook() :: String.t()
+  @callback hook(LiveCharts.Chart.t()) :: String.t()
 
   @doc """
   Translate a `%Chart{}` struct to JS library-specific options

@@ -1,0 +1,12 @@
+{
+  "name": "live_charts",
+  "version": "0.2.0",
+  "main": "./priv/static/live_charts.js",
+  "repository": {},
+  "files": [
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "priv/static/live_charts.js"
+  ]
+}
