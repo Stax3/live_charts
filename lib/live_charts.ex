@@ -1,18 +1,34 @@
 defmodule LiveCharts do
+  @version Mix.Project.config()[:version]
+
   @moduledoc """
-  Documentation for `LiveCharts`.
+  LiveCharts is a library to render static and dynamic charts
+  in Phoenix LiveView applications.
+
+  ## Getting started
+
+  Add `:live_charts` to your `mix.exs` dependencies:
+
+    defp deps do
+      [
+        {:live_charts, "~> #{@version}"},
+      ]
+    end
   """
 
   @doc """
-  Hello world.
+  Build a new chart config.
 
-  ## Examples
-
-      iex> LiveCharts.hello()
-      :world
-
+  See `LiveCharts.Chart.build/1` for more details.
   """
-  def hello do
-    :world
-  end
+  @spec build(map()) :: LiveCharts.Chart.t()
+  defdelegate build(assigns), to: LiveCharts.Chart
+
+  @doc """
+  Renders a chart component.
+
+  See `LiveCharts.Components.chart/1` for more details.
+  """
+  @spec chart(map()) :: Phoenix.HTML.t()
+  defdelegate chart(assigns), to: LiveCharts.Components
 end
