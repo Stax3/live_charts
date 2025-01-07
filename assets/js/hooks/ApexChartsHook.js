@@ -2,25 +2,25 @@ import ApexCharts from 'apexcharts';
 
 const ApexChartsHook = {
   /**
-   * Render chart and register event listeners
-   * on when the component is first mounted.
+   * Render chart and register event listeners on when
+   * the component is first mounted.
    */
   mounted() {
     this.renderChart();
-    this.handleEvent('chart-data', this.onChartDataEvent.bind(this));
+    this.handleEvent(`live-charts:update:${this.el.id}`, this.onChartUpdateEvent.bind(this));
   },
 
   /**
-   * Re-render chart when `data-chart` attribute is updated.
+   * Re-render chart when `data-chart` attribute is
+   * updated.
    */
   updated() {
     this.renderChart();
   },
 
   /**
-   * Parse config from `data-chart` attribute,
-   * normalize it if needed, and remove it
-   * from the HTML mkarup.
+   * Parse config from `data-chart` attribute, normalize
+   * it if needed, and remove it from the HTML markup.
    */
   getConfig() {
     const config = JSON.parse(this.el.dataset.chart);
@@ -37,10 +37,10 @@ const ApexChartsHook = {
   },
 
   /**
-   * Update chart when receiving new data over liveview
+   * Update chart when receiving new data over liveview.
    */
-  onChartDataEvent({ value }) {
-    this.chart.updateSeries(value);
+  onChartUpdateEvent({ data }) {
+    this.chart.updateSeries(data);
   },
 };
 

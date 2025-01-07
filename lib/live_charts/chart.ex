@@ -17,11 +17,14 @@ defmodule LiveCharts.Chart do
     adapter: nil
   ]
 
-  @typedoc "Chart type"
+  @typedoc "Chart series type"
+  @type series :: map()
+
+  @typedoc "Chart config type"
   @type t() :: %Chart{
           id: String.t(),
           type: atom(),
-          series: map() | list(),
+          series: [series()],
           options: map(),
           adapter: atom()
         }

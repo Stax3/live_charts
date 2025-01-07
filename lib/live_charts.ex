@@ -21,7 +21,6 @@ defmodule LiveCharts do
 
   See `LiveCharts.Chart.build/1` for more details.
   """
-  @spec build(map()) :: LiveCharts.Chart.t()
   defdelegate build(assigns), to: LiveCharts.Chart
 
   @doc """
@@ -29,6 +28,12 @@ defmodule LiveCharts do
 
   See `LiveCharts.Components.chart/1` for more details.
   """
-  @spec chart(map()) :: Phoenix.HTML.t()
   defdelegate chart(assigns), to: LiveCharts.Components
+
+  @doc """
+  Push a data update event to LiveView.
+
+  See `LiveCharts.Components.push_update/2` for more details.
+  """
+  defdelegate push_update(socket, chart_id, new_data), to: LiveCharts.Components
 end
