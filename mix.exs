@@ -8,17 +8,8 @@ defmodule LiveCharts.MixProject do
   @author "Stax3"
   @license "MIT"
 
-  # NOTE:
-  # To publish package or update docs, use the `docs`
-  # mix environment to not include support modules
-  # that are normally included in the `dev` environment
-  #
-  #   MIX_ENV=docs mix hex.publish
-  #
-
   def project do
     [
-      # Project
       app: @app,
       version: @version,
       elixir: "~> 1.16",
@@ -26,12 +17,12 @@ defmodule LiveCharts.MixProject do
       package: package(),
       deps: deps(),
       docs: docs(),
+      aliases: aliases(),
       elixirc_paths: elixirc_paths(Mix.env()),
       homepage_url: @github
     ]
   end
 
-  # BEAM Application
   def application do
     [
       env: default_env(),
@@ -39,7 +30,6 @@ defmodule LiveCharts.MixProject do
     ]
   end
 
-  # Default Env
   def default_env do
     [
       adapter: LiveCharts.Adapter.ApexCharts,
@@ -51,14 +41,13 @@ defmodule LiveCharts.MixProject do
     [
       {:phoenix_live_view, "~> 1.0.0"},
       {:jason, "~> 1.4.0", optional: true},
-      {:ex_doc, ">= 0.0.0", only: :docs},
-      {:inch_ex, ">= 0.0.0", only: :docs}
+      {:esbuild, "~> 0.8.0", only: :dev},
+      {:ex_doc, ">= 0.0.0", only: :dev},
+      {:inch_ex, ">= 0.0.0", only: :dev}
     ]
   end
 
-  defp elixirc_paths(:dev), do: elixirc_paths(:test)
   defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(:docs), do: ["lib"]
   defp elixirc_paths(_), do: ["lib"]
 
   defp description do
@@ -89,6 +78,14 @@ defmodule LiveCharts.MixProject do
       assets: %{
         "media" => "media"
       }
+    ]
+  end
+
+  defp aliases do
+    [
+      setup: ["deps.get", "cmd --cd assets npm install"],
+      "assets.build": ["esbuild module", "esbuild cdn", "esbuild cdn_min", "esbuild main"],
+      "assets.watch": ["esbuild module --watch"]
     ]
   end
 end

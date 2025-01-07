@@ -1,12 +1,22 @@
 {
   "name": "live_charts",
   "version": "0.2.0",
-  "main": "./priv/static/live_charts.js",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Stax3/live_charts.git"
+  },
+  "private": true,
+  "module": "./priv/static/live_charts.esm.js",
+  "main": "./priv/static/live_charts.cjs.js",
+  "exports": {
+    "import": "./priv/static/live_charts.esm.js",
+    "require": "./priv/static/live_charts.cjs.js"
+  },
   "files": [
     "README.md",
     "LICENSE",
     "package.json",
-    "priv/static/live_charts.js"
+    "priv/static/*",
+    "assets/js/live_charts/*"
   ]
 }
