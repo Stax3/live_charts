@@ -9,7 +9,7 @@ defmodule LiveCharts.Components do
   Render a chart in LiveView.
   """
 
-  attr :chart, Chart, required: true, doc: "A %Chart{} configuration"
+  attr :chart, Chart, required: true, doc: "A `%LiveCharts.Chart{}` configuration"
 
   @spec chart(map()) :: Phoenix.HTML.t()
   def chart(%{chart: chart} = assigns) do

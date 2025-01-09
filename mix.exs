@@ -59,8 +59,15 @@ defmodule LiveCharts.MixProject do
       name: @app,
       maintainers: [@author],
       licenses: [@license],
-      files: ~w(mix.exs lib README.md),
-      links: %{"GitHub" => @github}
+      links: %{"GitHub" => @github},
+      files: ~w(
+        mix.exs
+        package.json
+        lib
+        priv
+        assets/js
+        README.md
+      )
     ]
   end
 
@@ -72,8 +79,7 @@ defmodule LiveCharts.MixProject do
       source_ref: "v#{@version}",
       canonical: "https://hexdocs.pm/#{@app}",
       extras: [
-        {"README.md", title: @name},
-        "LICENSE"
+        {"README.md", title: @name}
       ],
       assets: %{
         "media" => "media"

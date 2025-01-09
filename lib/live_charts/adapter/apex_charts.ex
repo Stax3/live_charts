@@ -17,20 +17,43 @@ defmodule LiveCharts.Adapter.ApexCharts do
   - `options.series`: Will always be determined from the
     `:series` key in the LiveCharts config.
 
+
   ## Example
 
-    chart = LiveCharts.build(%{
-      type: :bar,
+  ```elixir
+  my_chart =
+    LiveCharts.build(%{
+      # (Optional) a unique string id to differentiate the chart from other
+      # charts on the same # page. If not set, a random id will be assigned
+      # to the chart.
+      id: "my-custom-chart-id",
+
+      # Set the chart type. Supports `:line`, `:bar`, `:pie`, `:donut`,
+      # `:area`, and many more. For a full list of supported types, see the
+      # adapter or JS library documentation.
+      type: :line,
+
+      # A list of series data with all the datapoints to chart. Format of
+      # this data is # determined by the adapter/JS library. This may also
+      # be empty, if you plan to # push dynamic updates to the chart over
+      # the socket later.
       series: [
-        %{name: "Sales", data: [10, 20, 30, 40, 50]}
+        %{name: "Sales", data: [10, 20, 30, 40, 50]},
       ],
+
+      # (Optional) Other library and adapter-specific options.
       options: %{
         xaxis: %{
           categories: [2021, 2022, 2023, 2024, 2025]
-        }
-      }
-    })
+        },
+      },
 
+      # (Optional) set the adapter to use for the chart. If not set, uses
+      # the global adapter configured in `config.exs` (defaults to
+      # `LiveCharts.Adapter.ApexCharts`).
+      adapter: LiveCharts.Adapter.ApexCharts,
+    })
+  ```
 
   For the full list of supported options, see
   [ApexCharts docs](https://apexcharts.com/docs/).
@@ -51,7 +74,8 @@ defmodule LiveCharts.Adapter.ApexCharts do
       chart:
         chart.options
         |> Map.get(:chart, default_options(:chart))
-        |> Map.put(:type, chart.type),
+        |> Map.put(:type, chart.type)
+        |> Map.put(:id, chart.id),
       series: chart.series
     })
   end
