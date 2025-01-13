@@ -67,7 +67,7 @@ Before it can be rendered, you need to build this struct.
 my_chart =
   LiveCharts.build(%{
     # (Optional) a unique string id to differentiate the chart from other
-    # charts on the same # page. If not set, a random id will be assigned
+    # charts on the same page. If not set, a random id will be assigned
     # to the chart.
     id: "my-custom-chart-id",
 
@@ -77,8 +77,8 @@ my_chart =
     type: :bar,
 
     # A list of series data with all the datapoints to chart. Format of
-    # this data is # determined by the adapter/JS library. This may also
-    # be empty, if you plan to # push dynamic updates to the chart over
+    # this data is determined by the adapter/JS library. This may also
+    # be empty, if you plan to push dynamic updates to the chart over
     # the socket later.
     series: [
       %{name: "Sales", data: [10, 20, 30, 40, 50]},
