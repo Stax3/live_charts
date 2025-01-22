@@ -6,6 +6,8 @@ LiveCharts
 LiveCharts currently comes with support for [ApexCharts][apexcharts] out of the box, but it
 can work with any JS charting library that has a [`LiveCharts.Adapter`][docs-adapter] defined.
 
+To see live demos, visit: [livecharts.stax3.com][demos].
+
 
 
 ## Installation
@@ -100,6 +102,7 @@ my_chart =
 
 For a full list of options, see the official [ApexCharts docs][apexcharts-docs] and
 the [`LiveCharts.Adapter.ApexCharts`][docs-apex] adapter information on HexDocs.
+You can also [view live demos][demos] here.
 
 
 ### Render Static Charts
@@ -198,6 +201,16 @@ We have used `handle_info/2` here, but chart updates could just as easily be pus
 liveview callbacks. E.g. from `handle_event/3` when the user triggers an event or
 `handle_async/3` when an async task is completed.
 
+A live demo is also available on [livecharts.stax3.com][demos].
+
+
+
+## Looking for help with your Elixir project?
+
+[Stax3][stax3] helps startups craft expressive and engaging solutions for their software needs.
+If you're looking for expertise for your Elixir/Phoenix projects, we can help! Talk to us at
+[contact@stax3.com][email].
+
 
 
 ## License
@@ -207,10 +220,13 @@ LiveCharts is licensed under the [MIT License][license].
 
 
 
-[license]:          ./LICENSE
+[license]:          https://opensource.org/license/mit
 [hexpm]:            https://hex.pm/packages/live_charts
 [apexcharts]:       https://apexcharts.com
 [apexcharts-docs]:  https://apexcharts.com/docs/
+[demos]:            https://livecharts.stax3.com/
+[stax3]:            https://stax3.com
+[email]:            mailto:contact@stax3.com
 
 [docs]:             https://hexdocs.pm/live_charts
 [docs-chart]:       https://hexdocs.pm/live_charts/LiveCharts.Chart.html

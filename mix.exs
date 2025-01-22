@@ -25,12 +25,12 @@ defmodule LiveCharts.MixProject do
 
   def application do
     [
-      env: default_env(),
+      env: default_config(),
       extra_applications: [:logger]
     ]
   end
 
-  def default_env do
+  def default_config do
     [
       adapter: LiveCharts.Adapter.ApexCharts,
       json_library: Jason
