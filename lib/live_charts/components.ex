@@ -11,7 +11,7 @@ defmodule LiveCharts.Components do
 
   attr :chart, Chart, required: true, doc: "A `%LiveCharts.Chart{}` configuration"
 
-  @spec chart(map()) :: Phoenix.HTML.t()
+  @spec chart(map()) :: Phoenix.LiveView.Rendered.t()
   def chart(%{chart: chart} = assigns) do
     LiveCharts.Validator.validate!(chart)
 

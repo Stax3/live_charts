@@ -44,6 +44,7 @@ defmodule LiveCharts.Adapter do
     quote do
       @behaviour LiveCharts.Adapter
 
+      @doc false
       def implements, do: LiveCharts.Adapter
     end
   end
