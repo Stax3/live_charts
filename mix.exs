@@ -90,6 +90,7 @@ defmodule LiveCharts.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "cmd --cd assets npm install"],
+      # Run assets.build after updating apexcharts
       "assets.build": ["esbuild module", "esbuild cdn", "esbuild cdn_min", "esbuild main"],
       "assets.watch": ["esbuild module --watch"]
     ]
