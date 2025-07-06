@@ -17,7 +17,7 @@ Add `:live_charts` to your `mix.exs` dependencies:
 ```elixir
 defp deps do
   [
-    {:live_charts, "~> 0.3.0"},
+    {:live_charts, "~> 0.4.0"},
   ]
 end
 ```
