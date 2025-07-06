@@ -135,7 +135,9 @@ If the chart needs to be updated often, a better strategy is to only push the ne
 of rebuilding the entire chart and re-rendering it. You can do so by calling:
 
 ```elixir
-LiveCharts.push_update(socket, chart.id, updated_series)
+socket = LiveCharts.push_update(socket, chart.id, updated_series)
+# or...
+{:noreply, LiveCharts.push_update(socket, chart.id, updated_series)}
 ```
 
 ## Example
