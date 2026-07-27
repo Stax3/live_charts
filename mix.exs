@@ -3,7 +3,7 @@ defmodule LiveCharts.MixProject do
 
   @app :live_charts
   @name "LiveCharts"
-  @version "0.4.0"
+  @version "0.4.1"
   @github "https://github.com/stax3/#{@app}"
   @author "Stax3"
   @license "MIT"
@@ -39,9 +39,9 @@ defmodule LiveCharts.MixProject do
 
   defp deps do
     [
-      {:phoenix_live_view, "~> 1.0.0"},
+      {:phoenix_live_view, "~> 1.0"},
       {:jason, "~> 1.4.0", optional: true},
-      {:esbuild, "~> 0.8.0", only: :dev},
+      {:esbuild, "~> 0.10", only: :dev},
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:inch_ex, ">= 0.0.0", only: :dev}
     ]
