@@ -3,7 +3,7 @@ defmodule LiveCharts.MixProject do
 
   @app :live_charts
   @name "LiveCharts"
-  @version "0.4.1"
+  @version "0.5.0"
   @github "https://github.com/stax3/#{@app}"
   @author "Stax3"
   @license "MIT"
